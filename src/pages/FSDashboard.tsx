@@ -17,7 +17,7 @@ export function FSDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">F&S Admin Dashboard</h1>
+        <h1 className="text-2xl font-bold text-gray-900">FnS Admin Dashboard</h1>
         <p className="text-gray-500 mt-1">Master Database Controls</p>
       </div>
 
@@ -301,7 +301,7 @@ function DatabaseView() {
                 <option value="">All Status</option>
                 <option value="pending">Pending</option>
                 <option value="reimbursed">Reimbursed</option>
-                <option value="handed_to_fs">Handed to F&S</option>
+                <option value="handed_to_fs">Handed to FnS</option>
                 <option value="disputed">Disputed</option>
               </select>
               <select value={filterCycle} onChange={(e) => { setFilterCycle(e.target.value); setPage(1); }} className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
@@ -377,7 +377,7 @@ function DatabaseView() {
                       >
                         <option value="pending">Pending</option>
                         <option value="reimbursed">Reimbursed</option>
-                        <option value="handed_to_fs">To F&S</option>
+                        <option value="handed_to_fs">To FnS</option>
                         <option value="disputed">Disputed</option>
                       </select>
                     </TableCell>
@@ -534,7 +534,7 @@ function DatabaseView() {
                 <select value={editingBill.status} onChange={(e) => setEditingBill({ ...editingBill, status: e.target.value as BillStatus })} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                   <option value="pending">Pending</option>
                   <option value="reimbursed">Reimbursed</option>
-                  <option value="handed_to_fs">Handed to F&S</option>
+                  <option value="handed_to_fs">Handed to FnS</option>
                   <option value="disputed">Disputed</option>
                 </select>
               </div>
@@ -974,7 +974,7 @@ function UsersManager() {
             <select value={newUser.role} onChange={(e) => setNewUser({ ...newUser, role: e.target.value as 'JC' | 'SC' | 'F_S' })} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
               <option value="JC">Junior Coordinator</option>
               <option value="SC">Senior Coordinator</option>
-              <option value="F_S">F&S</option>
+              <option value="F_S">FnS</option>
             </select>
           </div>
           <div className="flex justify-end gap-3 pt-4"><Button variant="outline" onClick={() => setShowAddUser(false)}>Cancel</Button><Button onClick={handleAdd}>Add User</Button></div>
@@ -993,7 +993,7 @@ function UsersManager() {
               <select value={editingUser.role} onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value as 'JC' | 'SC' | 'F_S' })} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                 <option value="JC">Junior Coordinator</option>
                 <option value="SC">Senior Coordinator</option>
-                <option value="F_S">F&S</option>
+                <option value="F_S">FnS</option>
               </select>
             </div>
             <div className="flex justify-end gap-3 pt-4"><Button variant="outline" onClick={() => setEditingUser(null)}>Cancel</Button><Button onClick={handleUpdate}>Save</Button></div>
@@ -1049,15 +1049,15 @@ function POCManager() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-semibold">SC to F&S POC Mapping</h2>
-        <p className="text-sm text-gray-500">Assign each SC to their designated F&S POC</p>
+        <h2 className="text-lg font-semibold">SC to FnS POC Mapping</h2>
+        <p className="text-sm text-gray-500">Assign each SC to their designated FnS POC</p>
       </CardHeader>
       <CardContent className="p-0">
         <Table>
           <TableHeader>
             <TableRow>
               <TableHeadCell>Senior Coordinator</TableHeadCell>
-              <TableHeadCell>Assigned F&S POC</TableHeadCell>
+              <TableHeadCell>Assigned FnS POC</TableHeadCell>
               <TableHeadCell>Actions</TableHeadCell>
             </TableRow>
           </TableHeader>
@@ -1073,7 +1073,7 @@ function POCManager() {
                       onChange={(e) => handleAssign(sc.id, e.target.value)}
                       className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     >
-                      <option value="">Select F&S POC</option>
+                      <option value="">Select FnS POC</option>
                       {fsUsers.map((fs) => <option key={fs.id} value={fs.id}>{fs.name}</option>)}
                     </select>
                   </TableCell>

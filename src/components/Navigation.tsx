@@ -14,7 +14,7 @@ export function Navigation() {
     ];
 
     if (user.role === 'F_S') {
-      links.push({ to: '/fs-admin', label: 'F&S Admin', icon: Settings });
+      links.push({ to: '/fs-admin', label: 'FnS Admin', icon: Settings });
     }
 
     return links;
@@ -53,7 +53,7 @@ export function Navigation() {
           <div className="flex items-center gap-4">
             <div className="text-sm text-right">
               <p className="font-medium text-gray-900">{user?.name}</p>
-              <p className="text-gray-500">{user?.role === 'F_S' ? 'F&S' : user?.role}</p>
+              <p className="text-gray-500">{user?.role === 'F_S' ? 'FnS' : user?.role}</p>
             </div>
             <button
               onClick={signOut}
