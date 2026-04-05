@@ -86,6 +86,19 @@ src/
     └── index.ts
 ```
 
+## GitHub Pages Deployment
+
+This repo is configured to deploy to GitHub Pages automatically whenever you push to the `master` branch.
+
+Before the first deployment, configure these in GitHub:
+
+1. Go to `Settings` -> `Pages` and set `Source` to `GitHub Actions`.
+2. Go to `Settings` -> `Secrets and variables` -> `Actions`.
+3. Add a repository variable named `VITE_SUPABASE_URL`.
+4. Add a repository secret named `VITE_SUPABASE_ANON_KEY`.
+
+After that, each push to `master` will build the app and publish the latest version to GitHub Pages.
+
 ## License
 
 MIT
