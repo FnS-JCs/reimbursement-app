@@ -1,4 +1,4 @@
-# SRCC Placement Cell - Digital Reimbursement System
+# The Placement Cell, SRCC - Digital Reimbursement System
 
 A web application for managing bill submissions and reimbursements for the SRCC Placement Cell.
 
