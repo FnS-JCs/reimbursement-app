@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Session } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
 import type { User as AppUser } from '../types';
 
 interface AuthContextType {
@@ -42,6 +42,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signInWithGoogle = async () => {
+    if (!isSupabaseConfigured) {
+      console.warn('Supabase is not configured. Google sign-in is unavailable.');
+      return;
+    }
+
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -51,11 +56,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
+    if (!isSupabaseConfigured) {
+      setUser(null);
+      setSession(null);
+      return;
+    }
+
     await supabase.auth.signOut();
     setUser(null);
   };
 
   useEffect(() => {
+    if (!isSupabaseConfigured) {
+      setLoading(false);
+      return;
+    }
+
     const timeout = setTimeout(() => setLoading(false), 3000);
     
     supabase.auth.getSession().then(async ({ data: { session } }) => {
